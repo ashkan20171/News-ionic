@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>دسته بندی ها</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+        <ion-row *ngIf="categories.length > 0">
+            <ion-col size="12" *ngFor="let category of categories">
+                <ion-card (click)="showNews(category.id)">
+                    <ion-card-header>
+                        <ion-card-subtitle>{{category.name}}</ion-card-subtitle>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <ion-img [src]="category.imageAddress"></ion-img>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

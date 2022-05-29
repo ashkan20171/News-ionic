@@ -1,0 +1,25 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>آخرین اخبار</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid *ngIf="latestNewses.length > 0">
+        <ion-row>
+            <ion-col size="12" size-lg="4" size-xl="3" *ngFor="let news of latestNewses">
+                <ion-card [routerLink]="['/news-detail', news.id]">
+                    <ion-card-header>
+                        <ion-card-subtitle>{{news.author}}</ion-card-subtitle>
+                        <ion-card-title>{{news.title}}</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <ion-img [src]="news.imageName"></ion-img>
+                        {{news.categoryName}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

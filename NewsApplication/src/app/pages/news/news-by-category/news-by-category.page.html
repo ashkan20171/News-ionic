@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title *ngIf="selectedCategory !== null">{{selectedCategory.name}}</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid *ngIf="news.length > 0">
+        <ion-row>
+            <ion-col size="12" size-lg="4" size-xl="3" *ngFor="let news of news">
+                <ion-card [routerLink]="['/news-detail', news.id]">
+                    <ion-card-header>
+                        <ion-card-subtitle>{{news.author}}</ion-card-subtitle>
+                        <ion-card-title>{{news.title}}</ion-card-title>
+                    </ion-card-header>
+
+                    <ion-card-content>
+                        <ion-img [src]="news.imageName"></ion-img>
+                        {{news.categoryName}}
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
